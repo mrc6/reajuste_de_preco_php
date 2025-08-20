@@ -8,11 +8,8 @@
 </head>
 <body>
     <?php 
-      $preco = 1000;
-      $porc = 20;
-      $formula = ($preco * $porc) / 100;
-      $novo_preco = $preco + $formula;
-      echo "<p>$porc% de $preco é igual $formula e o novo preço é $novo_preco</p>";
+      $preco = $_REQUEST['preco'] ?? 0;
+      $porc = $_REQUEST['reaj'] ?? 0;
     ?>
     <main>
         <h1>Reajustar o Preço</h1>
@@ -24,6 +21,11 @@
             <input type="submit" value="Reajustar">
         </form>
     </main>
+    <?php 
+      $formula = ($preco * $porc) / 100;
+      $novo_preco = $preco + $formula;
+      echo "<p>$porc% de $preco é igual $formula e o novo preço é $novo_preco</p>";
+    ?>
     <script>
         muda_valor();
         function muda_valor(){
